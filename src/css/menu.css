@@ -1,13 +1,13 @@
 .navbar-site {
     display: flex;
     width: 100%;
-    min-height: var(--height-menu);
-    max-height: var(--height-menu);
+    min-height: 75px;
+    max-height: 75px;
     position: fixed;
     top: 0;
-    z-index: 1020;
-    background: var(--bg-menu-light);
-    color: var(--color-text-dark);
+    z-index: 10020;
+    background: #fff;
+    color: #000;
 }
 
 /* nav */
@@ -15,7 +15,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
 }
 
 /* logo */
@@ -25,49 +27,58 @@
     font-size: 1.2rem;
     font-weight: 800;
     text-decoration: none;
-    color: var(--color-text-dark);
+    color: #000;
 }
 
 .navbar-site__logo-img {
-    min-width: 40px;
-    max-width: 60px;
-    min-height: 50px;
-    max-height: 70px;
+    width: 60px;
     height: auto;
 }
 
+.navbar-site__logo-strong {
+    padding: 0 5px;
+}
+
+.navbar-site__login-strong {
+    display: none;
+}
 /*  logo end */
 
 .navbar-site__list {
+    height: 75px;
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 .navbar-site__item {
-    transition: var(--transition);
+    /* transition: var(--transition); */
+    color: black;
 }
 
 .navbar-site__enlace {
-    color: var(--color-text-dark);
+    color: #000;
     padding: 15px;
     display: block;
     text-decoration: none;
     text-transform: capitalize;
+    text-align: center;
     font-size: 1rem;
-    transition: var(--transition);
+    /* transition: var(--transition); */
 }
 
 .navbar-site__enlace:hover {
-    color: var(--color-primary);
+    color: var(--text-color-strong);
+    cursor: pointer;
 }
 
 .navbar-site__active::after {
     content: "";
     width: 100%;
     height: 5px;
-    background: var(--color-primary);
+    background: var(--primary-color);
     display: block;
     margin: 0.5em auto 0;
 }
@@ -90,7 +101,7 @@
 .navbar-site__toggler__span:after {
     width: 30px;
     height: 3px;
-    background-color: var(--color-text-dark);
+    background-color: #000;
     display: block;
     transition: .3s;
 }
@@ -120,7 +131,7 @@
 /* navbar-site__toggler mobile version only end */
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
 
     /* navbar mobile */
     .navbar-site__toggler {
@@ -129,22 +140,36 @@
 
     .navbar-site__navbar {
         min-height: 60px;
-        margin: 0 15px;
     }
 
     .navbar-site__list {
         position: absolute;
-        width: 100%;
-        height: 100vh;
-        left: 0;
+        width: 50%;
+        height: calc(100vh - 70px);
+        right: 0;
         top: 70px;
+        bottom: 0;
         flex-direction: column;
         align-items: center;
-        color: var(--color-text-dark);
+        color: #000;
         max-height: 0;
         overflow: hidden;
         transition: .8s;
-        background: var(--bg-menu-light);
+        background: #fff;
+    }
+
+    .navbar-site__list::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .navbar-site__list::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color);
+        border-radius: 3px;
+    }
+    
+    .navbar-site__list::-webkit-scrollbar-track {
+        background-color: #dddddd;
     }
 
     .navbar-site__item {
@@ -153,19 +178,41 @@
     }
 
     .navbar-site__enlace {
-        padding: 25px;
-    }
-
-    .navbar-site__enlace:hover {
-        color: var(--color-primary);
+        padding: 20px;
     }
 
     .navbar-site__navbar ul.open {
-        max-height: 100vh;
+        max-height: calc(100vh - 70px);
         overflow: visible;
+        overflow-y: auto;
+    }
+    /* navbar mobile end */
+
+    .navbar-site__login-strong {
+        display: inline-block;
+        padding: 0 5px;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .navbar-site__list {
+        width: 100%;
     }
 
-    /* navbar mobile end */
+}
+
+
+@media screen and (max-width: 300px) {
+    .navbar-site__logo {
+        padding: 5px;
+    }
+
+    .navbar-site__logo-strong {
+        display: none;
+    }
+
+
 }
 
 /*  navbar end */

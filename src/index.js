@@ -1,8 +1,8 @@
 // import { saludar } from './js/componentes';
-import { createMenu } from './js/menu';
 
 // estilos globales
 import './styles.css';
+import './css/menu.css';
 
 // Murri min
 import './assets/js/muuri.min.js'
@@ -12,7 +12,8 @@ import './assets/js/web-animations.min.js'
 // Portafolio js
 import './js/portafolio.js';
 
-createMenu();
+
+import './js/menu-responsive.js'
 
 
 const cardWhatsapp = document.getElementById('contacto__cardWhatsapp');
